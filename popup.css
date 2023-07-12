@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Rubik:wght@300;400&family=Sofia+Sans&family=Titillium+Web&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  color: #000;
+  text-decoration: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+html {
+  user-select: none;
+}
+body {
+  width: 300px;
+  height: fit-content;
+  --bg: #fff;
+  --color: #000;
+  --primary: #7e6bc2;
+}
+[dark="true"] {
+  --bg: #19181b;
+  --color: #fff;
+}
+#content {
+  scroll-behavior: smooth;
+}
+.root {
+  background-color: var(--bg);
+  padding: 20px;
+  display: grid;
+  margin: auto;
+}
+.box {
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 2px 10px rgba(3, 3, 3, 0.1);
+  margin: 10px 0;
+}
+#counter-container p {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #fff !important;
+}
+p {
+  font-size: 1.4em;
+  font-weight: 700;
+}
+#herta {
+  position: relative;
+}
+#counter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+  height: 170px;
+}
+#counter-container > * {
+  width: fit-content;
+  text-align: center;
+  z-index: 1;
+}
+img.kururin {
+  position: absolute;
+  width: 170px;
+  bottom: 0%;
+  translate: 0 0%;
+  z-index: 0;
+  justify-content: space-between;
+  transition: all 20ms;
+}
+button {
+  --color: #fff;
+  /* font-family: inherit; */
+  /* display: inline-block; */
+  /* width: 8em; */
+  /* height: 2.6em; */
+  line-height: 1.5em;
+  /* margin: 20px; */
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color);
+  transition: color 0.5s;
+  z-index: 1;
+  /* font-size: 17px; */
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--color);
+  padding: 3px 5px;
+  background: transparent;
+  cursor: crosshair;
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: #fff;
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+}
+button:hover {
+  color: var(--primary);
+}
+
+button:before {
+  top: 100%;
+  left: 100%;
+  transition: all 0.7s;
+}
+button:hover:before {
+  top: -30px;
+  left: -30px;
+}
+
+button:active:before {
+  background: #fff;
+  transition: background 0s;
+}
+hr {
+  margin: 10px 0;
+  border: 3px dashed #fff;
+  width: 100% !important;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+.nav p {
+  font-weight: 600;
+}
+.nav p svg.bi-gift-fill:hover {
+  animation: tilt-shaking 1s;
+}
+@keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0eg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.nav svg {
+  width: 20px;
+  height: 20px;
+}
+.material-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: var(--color);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.material-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  position: relative;
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin: 0 8px;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.material-checkbox input[type="checkbox"]:checked ~ .checkmark {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.material-checkbox input[type="checkbox"]:checked ~ .checkmark:after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 3px;
+  width: 4px;
+  height: 10px;
+  border: solid var(--bg);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.material-checkbox input[type="checkbox"]:focus ~ .checkmark {
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+.material-checkbox:hover input[type="checkbox"] ~ .checkmark {
+  border-color: var(--primary);
+}
+
+.material-checkbox input[type="checkbox"]:disabled ~ .checkmark {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.material-checkbox input[type="checkbox"]:disabled ~ .checkmark:hover {
+  border-color: #4d4d4d;
+}
+#apps,
+#feature {
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+#content {
+  height: calc(170px + 40px);
+  overflow: auto;
+}
+body[dev] #content {
+  height: fit-content;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+#apps .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+#apps .box {
+  aspect-ratio: 1/1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+}
+#apps .box svg,
+#apps .box img {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+label,
+h1,
+p,
+svg {
+  color: var(--color);
+  fill: var(--color);
+}
+.nav a {
+  transition: filter 700ms;
+}
+[dark="true"] #apps .box img {
+  filter: invert();
+}
+[dark="true"] .theme-toggle svg {
+  fill: var(--primary);
+}
+
+[dark="true"] .nav a:hover {
+  filter: drop-shadow(0 0 10px var(--primary));
+}
+.theme-toggle {
+  cursor: pointer;
+}
