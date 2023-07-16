@@ -3,14 +3,8 @@
   "name": "Personal extension",
   "version": "1.0",
   "description": "gini..",
-  "permissions": [
-    "scripting",
-    "activeTab",
-    "storage"
-  ],
-  "host_permissions": [
-    "<all_urls>"
-  ],
+  "permissions": ["scripting", "activeTab", "storage"],
+  "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -24,5 +18,8 @@
       "matches": ["<all_urls>"],
       "js": ["script/content.js"]
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "script/background.js"
+  }
 }

@@ -136,7 +136,12 @@
     const data = await getData();
     const keys = Object.keys(data);
     for (const key of keys) {
-      document.getElementById(key).checked = data[key] || false;
+      const elm = document.getElementById(key);
+      if (elm) elm.checked = data[key] || false;
+      else {
+        delete data[key];
+        chrome.storage.local.set({ personal: data });
+      }
     }
   });
 });
